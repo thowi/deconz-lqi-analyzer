@@ -13,7 +13,7 @@ import networkx as nx
 NAMES_FILENAME = 'lqi-names.csv'
 LQI_FILENAME_PATTERN = re.compile(
     r'lqi-(\d\d\d\d-\d\d-\d\d-\d\d-\d\d-\d\d).csv')
-LQI_DATE_FORMAT = '%Y-%m-%d-%H-%M-%S'
+LQI_FILENAME_DATE_FORMAT = '%Y-%m-%d-%H-%M-%S'
 
 
 def get_best_connection_to_node(graph, root, node):
@@ -74,7 +74,7 @@ def main(argv=None):
       match = LQI_FILENAME_PATTERN.match(name)
       if match:
         file_datetime = datetime.datetime.strptime(
-            match.group(1), LQI_DATE_FORMAT)
+            match.group(1), LQI_FILENAME_DATE_FORMAT)
         best_connection_by_time_and_node[file_datetime] = {}
         coord, graph = get_coordinator_and_graph_for_csv_file(filename)
         for node, lqi in list(get_best_connection_to_all_nodes(graph, coord)):
