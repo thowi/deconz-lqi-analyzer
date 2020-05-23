@@ -7,7 +7,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
   pyenv activate deconz-lqi-analyzer
 fi
 
-./deconz-lqi-analyzer.py ~/Downloads/lqi-names.csv ~/Downloads/lqi-20*.csv > lqi_timeline.csv
+./deconz-lqi-analyzer.py lqi-names.csv lqi-2020-05-21*.csv > lqi_timeline.csv
 
 if command -v pyenv 1>/dev/null 2>&1; then
   pyenv deactivate
